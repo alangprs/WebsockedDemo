@@ -14,6 +14,7 @@
 		4DA22CDC28212FFA00BAE791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DA22CDA28212FFA00BAE791 /* Main.storyboard */; };
 		4DA22CDE28212FFD00BAE791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DA22CDD28212FFD00BAE791 /* Assets.xcassets */; };
 		4DA22CE128212FFD00BAE791 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DA22CDF28212FFD00BAE791 /* LaunchScreen.storyboard */; };
+		4DA22CEA282138FA00BAE791 /* WaynesTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22CE9282138FA00BAE791 /* WaynesTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		4DA22CDD28212FFD00BAE791 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DA22CE028212FFD00BAE791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DA22CE228212FFD00BAE791 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DA22CE9282138FA00BAE791 /* WaynesTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaynesTask.swift; sourceTree = "<group>"; };
 		B911B48186C8CB8B8EF90136 /* Pods-WebsockedDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebsockedDemo.release.xcconfig"; path = "Target Support Files/Pods-WebsockedDemo/Pods-WebsockedDemo.release.xcconfig"; sourceTree = "<group>"; };
 		CD419F227B8E3ADD2F749A9D /* Pods_WebsockedDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebsockedDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -63,6 +65,7 @@
 		4DA22CD328212FFA00BAE791 /* WebsockedDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4DA22CE8282138B500BAE791 /* Model */,
 				4DA22CD428212FFA00BAE791 /* AppDelegate.swift */,
 				4DA22CD628212FFA00BAE791 /* SceneDelegate.swift */,
 				4DA22CD828212FFA00BAE791 /* ViewController.swift */,
@@ -72,6 +75,14 @@
 				4DA22CE228212FFD00BAE791 /* Info.plist */,
 			);
 			path = WebsockedDemo;
+			sourceTree = "<group>";
+		};
+		4DA22CE8282138B500BAE791 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4DA22CE9282138FA00BAE791 /* WaynesTask.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8D90A1ACA2B39F1DD4D112C6 /* Frameworks */ = {
@@ -88,7 +99,6 @@
 				4D9D2F2D40440D49D9F407E0 /* Pods-WebsockedDemo.debug.xcconfig */,
 				B911B48186C8CB8B8EF90136 /* Pods-WebsockedDemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DA22CD928212FFA00BAE791 /* ViewController.swift in Sources */,
+				4DA22CEA282138FA00BAE791 /* WaynesTask.swift in Sources */,
 				4DA22CD528212FFA00BAE791 /* AppDelegate.swift in Sources */,
 				4DA22CD728212FFA00BAE791 /* SceneDelegate.swift in Sources */,
 			);

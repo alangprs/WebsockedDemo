@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import Starscream
 
 class ViewController: UIViewController {
 
+    var starscreamWebSocket = StarscreamWebSocket()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        
+        starscreamWebSocket.connect()
     }
 
 
