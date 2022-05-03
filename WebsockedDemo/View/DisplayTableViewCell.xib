@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="51" id="KGk-i7-Jjw" customClass="DisplayTableViewCell" customModule="WebsockedDemo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="價格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J2E-Cr-g63">
+                        <rect key="frame" x="142.5" y="15" width="35" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="數量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsG-Qd-7B8">
+                        <rect key="frame" x="269" y="15" width="35" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktN-5f-oEu">
+                        <rect key="frame" x="16" y="15" width="35" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="J2E-Cr-g63" firstAttribute="centerY" secondItem="ktN-5f-oEu" secondAttribute="centerY" id="MKy-6J-69D"/>
+                    <constraint firstItem="UsG-Qd-7B8" firstAttribute="centerY" secondItem="ktN-5f-oEu" secondAttribute="centerY" id="RTH-xn-iUJ"/>
+                    <constraint firstAttribute="trailing" secondItem="UsG-Qd-7B8" secondAttribute="trailing" constant="16" id="Ttw-gD-FU7"/>
+                    <constraint firstItem="J2E-Cr-g63" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bkA-RC-Eei"/>
+                    <constraint firstItem="J2E-Cr-g63" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="d1b-Pd-eLT"/>
+                    <constraint firstItem="ktN-5f-oEu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="uxA-MD-Zyg"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="priceLabel" destination="J2E-Cr-g63" id="vZh-CK-ZGz"/>
+                <outlet property="quantityLabel" destination="UsG-Qd-7B8" id="4rf-eN-yRd"/>
+                <outlet property="timeLabel" destination="ktN-5f-oEu" id="H4h-bj-vJE"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="65.290178571428569"/>
+        </tableViewCell>
+    </objects>
+</document>
