@@ -10,6 +10,7 @@ import Starscream
 
 class StarscreamWebSocket {
     var webSocket: WebSocket?
+    var displayMessages: DisplayMessages?
 
     ///連線方法
     func connect() {
@@ -40,7 +41,13 @@ extension StarscreamWebSocket: WebSocketDelegate {
         case .disconnected(let reason, let code):
             print("Disconnected: code=\(code), reason=\(reason)")
         case .text(let message):
-            print("Received: \(message)")
+            do {
+                let result = try JSONDecoder().decode(DisplayMessages.self, from: Data(message.utf8))
+                displayMessages = result
+                
+            } catch {
+                print("didReceive event error", error)
+            }
         case .binary(_):
             break
         case .pong(_):
@@ -58,3 +65,32 @@ extension StarscreamWebSocket: WebSocketDelegate {
         }
     }
 }
+
+// MARK: - DisplayMessages
+struct DisplayMessages: Codable {
+    let stream: String
+    let data: DataClass
+}
+
+// MARK: - DataClass
+struct DataClass: Codable {
+    let dataE: String
+    let e: Int
+    let s: String
+    let dataT: Int
+    let p, q: String
+    let b, a, t: Int
+    let dataM, m: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case dataE = "e"
+        case e = "E"
+        case s
+        case dataT = "t"
+        case p, q, b, a
+        case t = "T"
+        case dataM = "m"
+        case m = "M"
+    }
+}
+
