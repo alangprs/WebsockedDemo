@@ -13,6 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var displayTableView: UITableView!
     
     var starscreamWebSocket = StarscreamWebSocket()
+    var datas = [DataClass]() {
+        didSet {
+            displayTableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +25,16 @@ class ViewController: UIViewController {
         tableViewSetUp()
         starscreamWebSocket.connect()
     }
-
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        starscreamWebSocket.didData = { [weak self] (data) in
+            self?.datas.append(contentsOf: data)
+            
+        }
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -35,8 +48,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 1
+        return datas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,7 +58,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.myConvertCell(time: "測", price: "試", quantity: "看看")
+        let cellItem = datas[indexPath.item]
+        
+        cell.myConvertCell(time: cellItem.dataE, price: cellItem.p, quantity: cellItem.q)
         
         return cell
     }
