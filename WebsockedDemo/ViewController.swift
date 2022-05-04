@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         
         starscreamWebSocket.didData = { [weak self] (data) in
-            self?.datas.append(contentsOf: data)
+            self?.datas.insert(contentsOf: data, at: 0)
             
         }
     }
