@@ -71,7 +71,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cellItem = datas[indexPath.item]
         
-        cell.myConvertCell(time: cellItem.dataE, price: cellItem.p, quantity: cellItem.q)
+        cell.myConvertCell(time: "\(cellItem.e)", price: cellItem.p, quantity: cellItem.q)
         
         return cell
     }
