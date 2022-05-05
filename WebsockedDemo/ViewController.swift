@@ -13,6 +13,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var displayTableView: UITableView!
     
     var starscreamWebSocket = StarscreamWebSocket()
+    var datas = [DataClass]() {
+        didSet {
+            displayTableView.reloadData()
+            removeCount()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +26,26 @@ class ViewController: UIViewController {
         tableViewSetUp()
         starscreamWebSocket.connect()
     }
-
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        starscreamWebSocket.didData = { [weak self] (data) in
+            self?.datas.insert(contentsOf: data, at: 0)
+            
+        }
+    }
+    
+    ///remove超過的資料
+    func removeCount() {
+        if datas.isEmpty == false,
+           datas.count > 40 {
+            for relist in 40 ... datas.count - 1  {
+                datas.remove(at: relist)
+            }
+        }
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -35,8 +59,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 1
+        return datas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,7 +69,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.myConvertCell(time: "測", price: "試", quantity: "看看")
+        let cellItem = datas[indexPath.item]
+        
+        cell.myConvertCell(time: "\(cellItem.e)", price: cellItem.p, quantity: cellItem.q)
         
         return cell
     }

@@ -11,6 +11,7 @@ import Starscream
 class StarscreamWebSocket {
     var webSocket: WebSocket?
     var displayMessages: DisplayMessages?
+    var didData: (([DataClass]) -> Void)?
 
     ///連線方法
     func connect() {
@@ -44,7 +45,7 @@ extension StarscreamWebSocket: WebSocketDelegate {
             do {
                 let result = try JSONDecoder().decode(DisplayMessages.self, from: Data(message.utf8))
                 displayMessages = result
-                
+                didData?([result.data])
             } catch {
                 print("didReceive event error", error)
             }
