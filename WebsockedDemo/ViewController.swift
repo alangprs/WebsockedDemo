@@ -39,10 +39,9 @@ class ViewController: UIViewController {
     ///remove超過的資料
     func removeCount() {
         if datas.isEmpty == false,
-           datas.count > 39 {
-            for relist in 39 ... datas.count - 1  {
+           datas.count > 40 {
+            for relist in 40 ... datas.count - 1  {
                 datas.remove(at: relist)
-                print("看relist", relist)
             }
         }
     }
