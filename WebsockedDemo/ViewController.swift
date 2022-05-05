@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var datas = [DataClass]() {
         didSet {
             displayTableView.reloadData()
+            removeCount()
         }
     }
     
@@ -32,6 +33,17 @@ class ViewController: UIViewController {
         starscreamWebSocket.didData = { [weak self] (data) in
             self?.datas.insert(contentsOf: data, at: 0)
             
+        }
+    }
+    
+    ///remove超過的資料
+    func removeCount() {
+        if datas.isEmpty == false,
+           datas.count > 39 {
+            for relist in 39 ... datas.count - 1  {
+                datas.remove(at: relist)
+                print("看relist", relist)
+            }
         }
     }
     
